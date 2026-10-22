@@ -27,3 +27,46 @@ function createInvitation(person, event) {
 
 greetGuests(guests);
 console.log(createInvitation(name, "the summer celebration"));
+
+function createEventManager(eventName, invitees) {
+  if (typeof eventName !== "string" || eventName.trim() === "") {
+    throw new TypeError("Event name must be a non-empty string.");
+  }
+  if (!Array.isArray(invitees) || invitees.some((person) => typeof person !== "string")) {
+    throw new TypeError("Invitees must be an array of names.");
+  }
+
+  const responses = new Map(invitees.map((person) => [person, "pending"]));
+
+  return {
+    invite(person) {
+      if (!responses.has(person)) {
+        throw new Error(`${person} is not on the guest list.`);
+      }
+      return createInvitation(person, eventName);
+    },
+
+    respond(person, response) {
+      if (!responses.has(person)) {
+        throw new Error(`${person} is not on the guest list.`);
+      }
+      if (!['accepted', 'declined'].includes(response)) {
+        throw new TypeError('Response must be "accepted" or "declined".');
+      }
+      responses.set(person, response);
+    },
+
+    getSummary() {
+      const summary = { accepted: 0, declined: 0, pending: 0 };
+      for (const response of responses.values()) {
+        summary[response] += 1;
+      }
+      return summary;
+    },
+  };
+}
+
+const event = createEventManager("the summer celebration", guests);
+event.respond("Jordan", "accepted");
+event.respond("Sam", "declined");
+console.log(event.getSummary());
