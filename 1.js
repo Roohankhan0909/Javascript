@@ -32,7 +32,10 @@ function createEventManager(eventName, invitees) {
   if (typeof eventName !== "string" || eventName.trim() === "") {
     throw new TypeError("Event name must be a non-empty string.");
   }
-  if (!Array.isArray(invitees) || invitees.some((person) => typeof person !== "string")) {
+  if (
+    !Array.isArray(invitees) ||
+    invitees.some((person) => typeof person !== "string")
+  ) {
     throw new TypeError("Invitees must be an array of names.");
   }
 
@@ -50,7 +53,7 @@ function createEventManager(eventName, invitees) {
       if (!responses.has(person)) {
         throw new Error(`${person} is not on the guest list.`);
       }
-      if (!['accepted', 'declined'].includes(response)) {
+      if (!["accepted", "declined"].includes(response)) {
         throw new TypeError('Response must be "accepted" or "declined".');
       }
       responses.set(person, response);
@@ -70,3 +73,4 @@ const event = createEventManager("the summer celebration", guests);
 event.respond("Jordan", "accepted");
 event.respond("Sam", "declined");
 console.log(event.getSummary());
+console.log(event.invite("Jordan"));
