@@ -72,5 +72,6 @@ function createEventManager(eventName, invitees) {
 const event = createEventManager("the summer celebration", guests);
 event.respond("Jordan", "accepted");
 event.respond("Sam", "declined");
-console.log(event.getSummary());
-console.log(event.invite("Jordan"));
+console.log("Guest summary:", event.getSummary());
+console.log("Jordan invitation:", event.invite("Jordan"));
+console.log("Sam invitation:", event.invite("Sam"));
