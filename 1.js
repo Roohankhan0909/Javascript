@@ -75,3 +75,4 @@ event.respond("Sam", "declined");
 console.log("Guest summary:", event.getSummary());
 console.log("Jordan invitation:", event.invite("Jordan"));
 console.log("Sam invitation:", event.invite("Sam"));
+console.log("Final event summary:", event.getSummary());
