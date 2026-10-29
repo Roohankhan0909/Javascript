@@ -59,6 +59,13 @@ function createEventManager(eventName, invitees) {
       responses.set(person, response);
     },
 
+    getResponse(person) {
+      if (!responses.has(person)) {
+        throw new Error(`${person} is not on the guest list.`);
+      }
+      return responses.get(person);
+    },
+
     getSummary() {
       const summary = { accepted: 0, declined: 0, pending: 0 };
       for (const response of responses.values()) {
@@ -75,6 +82,7 @@ event.respond("Sam", "declined");
 console.log("Guest summary:", event.getSummary());
 console.log("Jordan invitation:", event.invite("Jordan"));
 console.log("Sam invitation:", event.invite("Sam"));
+console.log("Jordan's response:", event.getResponse("Jordan"));
 // console.log("Final event summary:", event.getSummary());
 // console.log("Sam invitation:", event.invite("Sam"));
 console.log("Final event summary:", event.getSummary());
