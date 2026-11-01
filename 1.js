@@ -86,3 +86,4 @@ console.log("Jordan's response:", event.getResponse("Jordan"));
 // console.log("Final event summary:", event.getSummary());
 // console.log("Sam invitation:", event.invite("Sam"));
 console.log("Final event summary:", event.getSummary());
+console.count("first");
