@@ -87,3 +87,6 @@ console.log("Jordan's response:", event.getResponse("Jordan"));
 // console.log("Sam invitation:", event.invite("Sam"));
 console.log("Final event summary:", event.getSummary());
 console.count("first");
+for (const guest of guests) {
+  console.log(`${guest}: ${event.getResponse(guest)}`);
+}
