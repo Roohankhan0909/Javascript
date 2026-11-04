@@ -90,3 +90,7 @@ console.count("first");
 for (const guest of guests) {
   console.log(`${guest}: ${event.getResponse(guest)}`);
 }
+const pendingGuests = guests.filter(
+  (guest) => event.getResponse(guest) === "pending",
+);
+console.log("Pending guests:", pendingGuests);
