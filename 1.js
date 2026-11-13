@@ -93,4 +93,5 @@ for (const guest of guests) {
 const pendingGuests = guests.filter(
   (guest) => event.getResponse(guest) === "pending",
 );
+console.log(`There are ${pendingGuests.length} pending guest(s).`);
 console.log("Pending guests:", pendingGuests);
