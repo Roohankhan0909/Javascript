@@ -95,4 +95,4 @@ const pendingGuests = guests.filter(
 );
 console.log(`There are ${pendingGuests.length} pending guest(s).`);
 console.log("Pending guests:", pendingGuests);
-console.log("Pending guests:", pendingGuests);
+console.log("Pending guests:", pendingGuests)Z
