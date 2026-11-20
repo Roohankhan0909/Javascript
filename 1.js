@@ -94,5 +94,4 @@ const pendingGuests = guests.filter(
   (guest) => event.getResponse(guest) === "pending",
 );
 console.log(`There are ${pendingGuests.length} pending guest(s).`);
-console.log("Pending guests:", pendingGuests);
-console.log("Pending guests:", pendingGuests)Z
+console.log("Pending guests:", pendingGuests);m
